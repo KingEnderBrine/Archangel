@@ -1,0 +1,21 @@
+{
+    "name": "Archangel",
+    "references": [
+        "com.unity.multiplayer-hlapi.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "HGUnityUtils.dll",
+        "RoR2.dll",
+        "HGCSharpUtils.dll",
+        "KinematicCharacterController.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

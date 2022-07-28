@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4466b9f60b7ae534788877e077130f8e
+ScriptedImporter:
+  fileIDToRecycleName: {}
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 5a28862b828b1dc4699420997f952964, type: 3}
+  references:
+  - referencedObject: {fileID: 100246, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
+    nameOverride: 
+  - referencedObject: {fileID: 100244, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
+    nameOverride: 
+  - referencedObject: {fileID: 100242, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
+    nameOverride: 
+  useObjectAsRoot: 0

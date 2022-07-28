@@ -1,0 +1,18 @@
+{
+    "name": "EditorHelpers",
+    "references": [
+        "ThunderKit.Core",
+        "ThunderKit.Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "RoR2.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

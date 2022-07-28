@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -281164913, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: ContentPack
+  m_EditorClassIdentifier: 
+  bodyPrefabs:
+  - {fileID: 8750018824639101403, guid: e574d7202f7cc8446b362fe10aed7abc, type: 3}
+  masterPrefabs: []
+  projectilePrefabs:
+  - {fileID: 4893276912268325078, guid: 790cff7ae201e4b42bf5269c8f5c3c41, type: 3}
+  - {fileID: 8845348678802544283, guid: c7e407cf31656af489600a2f179c6768, type: 3}
+  gameModePrefabs: []
+  networkedObjectPrefabs: []
+  skillDefs:
+  - {fileID: 11400000, guid: 90769ebe386eed54e8d1aff1f73b192c, type: 2}
+  - {fileID: 11400000, guid: b7df747b2e2b3e349891394083bfcc66, type: 2}
+  - {fileID: 11400000, guid: 6c0b188e0debf61448fabc732946ac8e, type: 2}
+  - {fileID: 11400000, guid: 69806d63c2f47e040b5d306ba10b4d49, type: 2}
+  skillFamilies:
+  - {fileID: 11400000, guid: 17d74187ae6649444bac41e2ea4dbcc1, type: 2}
+  - {fileID: 11400000, guid: 4720101adafc2ba47b36f0f9399be6d6, type: 2}
+  - {fileID: 11400000, guid: 95a67ee725a06b04f926d4adc5fb515d, type: 2}
+  - {fileID: 11400000, guid: 1ae8becb164d2b04cbc339e79d26e7da, type: 2}
+  sceneDefs: []
+  itemDefs: []
+  equipmentDefs: []
+  buffDefs: []
+  eliteDefs: []
+  unlockableDefs: []
+  survivorDefs:
+  - {fileID: 11400000, guid: 31dcdb118d58ede4db4ed626d75f8d02, type: 2}
+  artifactDefs: []
+  surfaceDefs: []
+  networkSoundEventDefs: []
+  musicTrackDefs: []
+  gameEndingDefs: []
+  entityStateConfigurations:
+  - {fileID: 11400000, guid: 29d7447a9c08ecc419b1c85591ce8574, type: 2}
+  - {fileID: 11400000, guid: 6e51fbd5b7e027e459e1b52f5d402411, type: 2}
+  - {fileID: 11400000, guid: 3d22ee6c6d8ad264881ec054907d753c, type: 2}
+  - {fileID: 11400000, guid: 59c461bd8a38cb24b9f84ba181d5f8dd, type: 2}
+  - {fileID: 11400000, guid: 8f936973a9e9e6b49b67530b3e05aec6, type: 2}
+  - {fileID: 11400000, guid: 248eef221a8790a4e8fc36622b176807, type: 2}
+  - {fileID: 11400000, guid: 327f85573582ec64aacfcb86ac012876, type: 2}
+  entityStateTypes: []

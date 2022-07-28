@@ -1,0 +1,3 @@
+[submodule "Archangel-RoR-Resources"]
+	path = Assets/ExternalReferenceAssets
+	url = https://github.com/KingEnderBrine/Archangel-RoR-Resources
