@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8120365088978255477}
   - component: {fileID: 8120365088978255483}
   - component: {fileID: 8120365088978255482}
+  - component: {fileID: 141631753882808638}
+  - component: {fileID: 1663703748925590197}
+  - component: {fileID: 3174281168811563234}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -79,73 +82,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8120365088978255476}
   m_Mesh: {fileID: 4300008, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
---- !u!1 &8120365089143199558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8120365089143199556}
-  - component: {fileID: 8120365089143199559}
-  - component: {fileID: 5035115680020817089}
-  - component: {fileID: 6861756703485831470}
-  m_Layer: 0
-  m_Name: SpecialSwordProjectileGhost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8120365089143199556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8120365089143199558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8120365088978255477}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8120365089143199559
+--- !u!114 &141631753882808638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8120365089143199558}
+  m_GameObject: {fileID: 8120365088978255476}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b9ae2a2a1461cb478c5b92ce0d10bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inheritScaleFromProjectile: 0
---- !u!114 &5035115680020817089
+  printTime: 0.5
+  printCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0028090104
+      value: 0.6538925
+      inSlope: -0.65206045
+      outSlope: -0.65206045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0000006
+      value: 0
+      inSlope: -0.65206045
+      outSlope: -0.65206045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  age: 0
+  disableWhenFinished: 0
+  paused: 0
+  startingPrintHeight: 2
+  maxPrintHeight: -3
+  startingPrintBias: 1
+  maxPrintBias: 0
+  animateFlowmapPower: 0
+  startingFlowmapPower: 0
+  maxFlowmapPower: 0
+  controllerName: Hide
+  direction: 3
+  disableGameObjectWhenFinished: 0
+--- !u!114 &1663703748925590197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8120365089143199558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ff740ecd2b42a4fa60e7429f0dd9b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 4864482556112111242, guid: 705b0c034b7569943831363e252b5cd0, type: 3}
---- !u!114 &6861756703485831470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8120365089143199558}
+  m_GameObject: {fileID: 8120365088978255476}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b9ae2a2a1461cb478c5b92ce0d10bb5, type: 3}
@@ -189,3 +182,82 @@ MonoBehaviour:
   controllerName: Show
   direction: 3
   disableGameObjectWhenFinished: 0
+--- !u!114 &3174281168811563234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120365088978255476}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  resetAgeOnDisable: 0
+--- !u!1 &8120365089143199558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8120365089143199556}
+  - component: {fileID: 8120365089143199559}
+  - component: {fileID: 5373905783980471344}
+  m_Layer: 0
+  m_Name: SpecialSwordProjectileGhost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8120365089143199556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120365089143199558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8120365088978255477}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8120365089143199559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120365089143199558}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inheritScaleFromProjectile: 0
+--- !u!114 &5373905783980471344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120365089143199558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f2366ff3a38ce40b7ec1b3672316e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 8120365088978255477}
+  enableComponents:
+  - {fileID: 141631753882808638}
+  - {fileID: 3174281168811563234}
+  disableComponents:
+  - {fileID: 1663703748925590197}

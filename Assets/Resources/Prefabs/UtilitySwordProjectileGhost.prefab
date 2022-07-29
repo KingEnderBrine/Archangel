@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369794519541168384}
   - component: {fileID: 4369794519541168387}
-  - component: {fileID: 5585379533540679270}
-  - component: {fileID: 717663301073226373}
+  - component: {fileID: 3044713413482730460}
   m_Layer: 0
   m_Name: UtilitySwordProjectileGhost
   m_TagString: Untagged
@@ -48,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inheritScaleFromProjectile: 0
---- !u!114 &5585379533540679270
+--- !u!114 &3044713413482730460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,60 +56,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4369794519541168386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b9ae2a2a1461cb478c5b92ce0d10bb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 21f2366ff3a38ce40b7ec1b3672316e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  printTime: 0.15
-  printCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.65481174
-      outSlope: 0.65481174
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9985962
-      value: 0.6538925
-      inSlope: 0.65481174
-      outSlope: 0.65481174
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  age: 0
-  disableWhenFinished: 1
-  paused: 0
-  startingPrintHeight: 2
-  maxPrintHeight: -3
-  startingPrintBias: 1
-  maxPrintBias: 0
-  animateFlowmapPower: 0
-  startingFlowmapPower: 0
-  maxFlowmapPower: 0
-  controllerName: Show
-  direction: 3
-  disableGameObjectWhenFinished: 0
---- !u!114 &717663301073226373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4369794519541168386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ff740ecd2b42a4fa60e7429f0dd9b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 7206169642620520933, guid: 0772ffd02f74f6a45a061d78e0bc7f3d, type: 3}
+  targets:
+  - {fileID: 4369794519720661041}
+  enableComponents:
+  - {fileID: 5784592015423063620}
+  - {fileID: 5702357597635617800}
+  disableComponents:
+  - {fileID: 323960890593853387}
 --- !u!1 &4369794519720661040
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +77,9 @@ GameObject:
   - component: {fileID: 4369794519720661041}
   - component: {fileID: 4369794519720661055}
   - component: {fileID: 4369794519720661054}
+  - component: {fileID: 5784592015423063620}
+  - component: {fileID: 323960890593853387}
+  - component: {fileID: 5702357597635617800}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -190,6 +148,120 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4369794519720661040}
   m_Mesh: {fileID: 4300008, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
+--- !u!114 &5784592015423063620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4369794519720661040}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9ae2a2a1461cb478c5b92ce0d10bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printTime: 0.25
+  printCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0028090104
+      value: 0.6538925
+      inSlope: -0.65206045
+      outSlope: -0.65206045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0000006
+      value: 0
+      inSlope: -0.65206045
+      outSlope: -0.65206045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  age: 0
+  disableWhenFinished: 0
+  paused: 0
+  startingPrintHeight: 2
+  maxPrintHeight: -3
+  startingPrintBias: 1
+  maxPrintBias: 0
+  animateFlowmapPower: 0
+  startingFlowmapPower: 0
+  maxFlowmapPower: 0
+  controllerName: Hide
+  direction: 3
+  disableGameObjectWhenFinished: 0
+--- !u!114 &323960890593853387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4369794519720661040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9ae2a2a1461cb478c5b92ce0d10bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printTime: 0.15
+  printCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.65481174
+      outSlope: 0.65481174
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9985962
+      value: 0.6538925
+      inSlope: 0.65481174
+      outSlope: 0.65481174
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  age: 0
+  disableWhenFinished: 1
+  paused: 0
+  startingPrintHeight: 2
+  maxPrintHeight: -3
+  startingPrintBias: 1
+  maxPrintBias: 0
+  animateFlowmapPower: 0
+  startingFlowmapPower: 0
+  maxFlowmapPower: 0
+  controllerName: Show
+  direction: 3
+  disableGameObjectWhenFinished: 0
+--- !u!114 &5702357597635617800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4369794519720661040}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.25
+  resetAgeOnDisable: 0
 --- !u!1 &9100325790469875468
 GameObject:
   m_ObjectHideFlags: 0
