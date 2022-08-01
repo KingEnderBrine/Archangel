@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 1.8
+        stringValue: 1
         objectValue: {fileID: 0}
     - fieldName: damageCoefficient
       fieldValue:
@@ -95,7 +95,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDurationBeforeInterruptable
       fieldValue:
-        stringValue: 1.5
+        stringValue: 1
         objectValue: {fileID: 0}
     - fieldName: recoilDirection
       fieldValue:
@@ -132,4 +132,8 @@ MonoBehaviour:
     - fieldName: swordsAnimationStateName
       fieldValue:
         stringValue: Skill2_1
+        objectValue: {fileID: 0}
+    - fieldName: fixedAdditionalDuration
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}

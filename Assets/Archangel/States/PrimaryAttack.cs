@@ -18,5 +18,6 @@ namespace Archangel.States
 
         private static Action<object>[] _stepInitActions;
         protected override Action<object>[] StepInitActions { get => _stepInitActions; set => _stepInitActions = value; }
+        protected override string PlaybackRateParameter => "PrimaryPlaybackRate";
     }
 }

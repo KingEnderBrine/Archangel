@@ -15,50 +15,60 @@ namespace ThunderKit.Core.Pipelines.Jobs
         protected override Task ExecuteInternal(Pipeline pipeline)
         {
             var success = false;
-            if (CopyFiles(pipeline, "<ManifestStagingRoot>/plugins", "<BepInEx_Plugins>") ||
-                CopyFiles(pipeline, "<ManifestStagingRoot>/BepInEx/plugins", "<BepInEx_Plugins>"))
+
+            string stagingRoot;
+            try
+            {
+                stagingRoot = "<ManifestStagingRoot>".Resolve(pipeline, this);
+            }
+            catch
+            {
+                return Task.CompletedTask;
+            }
+
+            var outputPath = "<BepInEx_Config_Folder>".Resolve(pipeline, this);
+            if (CopyFiles(Path.Combine(stagingRoot, "config"), outputPath) ||
+                CopyFiles(Path.Combine(stagingRoot, "BepInEx", "config"), outputPath))
             {
                 success = true;
             }
 
-            if (CopyFiles(pipeline, "<ManifestStagingRoot>/monomod", "<BepInEx_Monomod>") ||
-                CopyFiles(pipeline, "<ManifestStagingRoot>/BepInEx/monomod", "<BepInEx_Monomod>"))
+            outputPath = "<BepInEx_Monomod>".Resolve(pipeline, this);
+            if (CopyFiles("<ManifestStagingRoot>/monomod", outputPath) ||
+                CopyFiles("<ManifestStagingRoot>/BepInEx/monomod", outputPath))
             {
                 success = true;
             }
 
-            if (CopyFiles(pipeline, "<ManifestStagingRoot>/BepInEx/patchers", "<BepInEx_Patchers>") ||
-                CopyFiles(pipeline, "<ManifestStagingRoot>/patchers", "<BepInEx_Patchers>"))
+            outputPath = "<BepInEx_Patchers>".Resolve(pipeline, this);
+            if (CopyFiles(Path.Combine(stagingRoot, "patchers"), outputPath) ||
+                CopyFiles(Path.Combine(stagingRoot, "BepInEx", "patchers"), outputPath))
+            {
+                success = true;
+            }
+
+            outputPath = "<BepInEx_Plugins>".Resolve(pipeline, this);
+            if (CopyFiles(Path.Combine(stagingRoot, "plugins"), outputPath) ||
+                CopyFiles(Path.Combine(stagingRoot, "BepInEx", "plugins"), outputPath))
             {
                 success = true;
             }
 
             if (!success)
             {
-                CopyFiles(pipeline, "<ManifestStagingRoot>", "<BepInEx_Plugins>");
+                CopyFiles(stagingRoot, outputPath);
             }
 
             return Task.CompletedTask;
         }
 
-        private bool CopyFiles(Pipeline pipeline, string sourcePath, string destinationPath)
+        private bool CopyFiles(string source, string destination)
         {
-            string source;
-            try
-            {
-                source = sourcePath.Resolve(pipeline, this);
-            }
-            catch
-            {
-                return false;
-            }
-
             if (!Directory.Exists(source))
             {
                 return false;
             }
 
-            var destination = destinationPath.Resolve(pipeline, this);
             if (Directory.Exists(destination))
             {
                 Directory.Delete(destination, true);

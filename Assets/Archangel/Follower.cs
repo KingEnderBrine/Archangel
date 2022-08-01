@@ -12,34 +12,27 @@ namespace Archangel
         public Transform target;
         public Vector3 offset;
         public float positionDampTime = 0.2f;
+        public bool positionWithNoise;
+        public float noiseScale = 0.01f;
+        public float noiseValueScale = 0.05f;
         [Range(0, 10)]
         public float rotationSpeed = 5;
         public float snapDuration = 0.1f;
+
         private bool snapped;
         private float snappingTime = -1;
         private Vector3 velocity;
+        private float noiseOffset;
+        private float age;
+        public float lastTime;
+        public float lastNoise;
 
-        private void Start()
+        private void Awake()
         {
-            if (!target)
-            {
-                return;
-            }
+            noiseOffset = UnityEngine.Random.Range(0, 1);
         }
 
-        public void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Snap();
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                UnSnap();
-            }
-        }
-
-        private void FixedUpdate()
+        private void Update()
         {
             if (!target)
             {
@@ -54,7 +47,7 @@ namespace Archangel
             }
             else if (snappingTime >= 0)
             {
-                snappingTime += Time.fixedDeltaTime;
+                snappingTime += Time.deltaTime;
                 var t = Mathf.Clamp(snappingTime, 0, snapDuration) * (1 / snapDuration);
                 transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, t);
                 transform.position = Vector3.Lerp(transform.position, targetPosition, t);
@@ -65,9 +58,17 @@ namespace Archangel
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Mathf.Clamp01(rotationSpeed * Time.fixedDeltaTime));
-                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, positionDampTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Mathf.Clamp01(rotationSpeed * Time.deltaTime));
+                lastTime = positionDampTime;
+                if (positionWithNoise)
+                {
+                    lastNoise = Mathf.PerlinNoise(noiseOffset, age * noiseScale);
+                    lastTime += lastNoise * noiseValueScale;
+                }
+                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, lastTime);
             }
+
+            age += Time.deltaTime;
         }
 
         public void Snap()

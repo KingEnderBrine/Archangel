@@ -19,6 +19,8 @@ namespace Archangel.States
         [SerializeField]
         public float baseDurationBeforeInterruptable;
         [SerializeField]
+        public float fixedAdditionalDuration;
+        [SerializeField]
         public string archangelAnimationLayer;
         [SerializeField]
         public string archangelAnimationStateName;
@@ -41,6 +43,8 @@ namespace Archangel.States
         protected SwordsController swordsController;
         protected Follower swordsFollower;
 
+        protected abstract string PlaybackRateParameter { get; } 
+
         public override void OnEnter()
         {
             LoadStepConfiguration();
@@ -52,11 +56,15 @@ namespace Archangel.States
             durationBeforeInterruptable = baseDurationBeforeInterruptable / attackSpeedStat;
 
             base.OnEnter();
+
+            duration += fixedAdditionalDuration;
         }
 
         public override void OnExit()
         {
             swordsFollower.UnSnap();
+            animator.SetBool("Waiting", false);
+            GetModelAnimator().SetBool("Waiting", false);
             base.OnExit();
         }
 
@@ -81,14 +89,16 @@ namespace Archangel.States
         {
             if (!string.IsNullOrWhiteSpace(archangelAnimationLayer) && !string.IsNullOrWhiteSpace(archangelAnimationStateName))
             {
-                PlayAnimation(archangelAnimationLayer, archangelAnimationStateName, "PrimaryPlaybackRate", duration);
+                animator.SetBool("Waiting", true);
+                PlayAnimation(archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, duration);
             }
 
             animator = swordsController.GetComponent<Animator>();
 
             if (!string.IsNullOrWhiteSpace(swordsAnimationLayer) && !string.IsNullOrWhiteSpace(swordsAnimationStateName))
             {
-                PlayAnimationOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, "PrimaryPlaybackRate", duration);
+                animator.SetBool("Waiting", true);
+                PlayAnimationOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, duration);
             }
         }
 

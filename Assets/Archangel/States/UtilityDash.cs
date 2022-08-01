@@ -24,7 +24,7 @@ namespace Archangel.States
         public override void OnEnter()
         {
             base.OnEnter();
-            PlayAnimation("Body, Override", "Armature|ability3", "UtilityPlacybackRate", dashDuration);
+            PlayAnimation("Body, Override", "Skill3", "UtilityPlacybackRate", dashDuration);
             if (isAuthority)
             {
                 startDashVector = (projectileBehaviour.transform.position - transform.position).normalized;
