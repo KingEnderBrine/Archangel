@@ -21,7 +21,7 @@ MonoBehaviour:
   manifest: {fileID: 11400000, guid: 008221e5347628361b5488326ccaba5e, type: 2}
 --- !u!114 &114256465017749422
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   BundleArtifactPath: <AssetBundleStaging>
 --- !u!114 &114366308522735304
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   Active: 1
 --- !u!114 &114537630434205182
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
   ExcludedManifests: []
 --- !u!114 &114643622350610336
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   buildTargetGroup: 1
 --- !u!114 &114888345249068578
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

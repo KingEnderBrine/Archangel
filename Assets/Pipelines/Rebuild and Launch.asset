@@ -17,10 +17,10 @@ MonoBehaviour:
   - {fileID: 114559832304535298}
   - {fileID: 114679819151059082}
   QuickAccess: 1
-  manifest: {fileID: 11400000, guid: 008221e5347628361b5488326ccaba5e, type: 2}
+  manifest: {fileID: 11400000, guid: 003ac724a201ac6418e1f8bfa4f60440, type: 2}
 --- !u!114 &114316524637315588
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -35,7 +35,7 @@ MonoBehaviour:
   targetpipeline: {fileID: 11400000, guid: 86d82e662b8b61348a39bdb6be30e106, type: 2}
 --- !u!114 &114559832304535298
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   targetpipeline: {fileID: 11400000, guid: b96b632417a34f94cb30445b7c045185, type: 2}
 --- !u!114 &114679819151059082
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
