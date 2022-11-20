@@ -27,15 +27,15 @@ namespace ThunderKit.Core.Pipelines.Jobs
             }
 
             var outputPath = "<BepInEx_Config_Folder>".Resolve(pipeline, this);
-            if (CopyFiles(Path.Combine(stagingRoot, "config"), outputPath) ||
-                CopyFiles(Path.Combine(stagingRoot, "BepInEx", "config"), outputPath))
+            if (CopyFiles(Path.Combine(stagingRoot, "config"), outputPath, false) ||
+                CopyFiles(Path.Combine(stagingRoot, "BepInEx", "config"), outputPath, false))
             {
                 success = true;
             }
 
             outputPath = "<BepInEx_Monomod>".Resolve(pipeline, this);
-            if (CopyFiles("<ManifestStagingRoot>/monomod", outputPath) ||
-                CopyFiles("<ManifestStagingRoot>/BepInEx/monomod", outputPath))
+            if (CopyFiles(Path.Combine(stagingRoot, "monomod"), outputPath) ||
+                CopyFiles(Path.Combine(stagingRoot, "BepInEx", "monomod"), outputPath))
             {
                 success = true;
             }
@@ -62,14 +62,14 @@ namespace ThunderKit.Core.Pipelines.Jobs
             return Task.CompletedTask;
         }
 
-        private bool CopyFiles(string source, string destination)
+        private bool CopyFiles(string source, string destination, bool clearDestination = true)
         {
             if (!Directory.Exists(source))
             {
                 return false;
             }
 
-            if (Directory.Exists(destination))
+            if (clearDestination && Directory.Exists(destination))
             {
                 Directory.Delete(destination, true);
             }

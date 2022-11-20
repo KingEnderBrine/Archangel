@@ -14,8 +14,15 @@ namespace Archangel
 
         private CharacterModel characterModel;
 
+        private void Awake()
+        {
+            TryInit();
+        }
+
         private void Start()
         {
+            TryInit();
+
             characterModel = GetComponent<CharacterModel>();
             var display = new CharacterModel.ParentedPrefabDisplay
             {
@@ -25,8 +32,20 @@ namespace Archangel
 
             display.instance = instance;
             display.itemDisplay = instance.GetComponent<ItemDisplay>();
-            ControllerInstance = instance.GetComponent<SwordsController>();
             characterModel.parentedPrefabDisplays.Add(display);
+        }
+
+        private void TryInit()
+        {
+            if (!instance)
+            {
+                return;
+            }
+
+            if (!ControllerInstance)
+            {
+                ControllerInstance = instance.GetComponent<SwordsController>();
+            }
         }
 
         private void OnDestroy()

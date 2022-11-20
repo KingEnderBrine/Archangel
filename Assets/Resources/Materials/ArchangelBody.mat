@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ArchangelBody
-  m_Shader: {fileID: -3093500014867346572, guid: abb698c5ceaa8e66d56bfccef36daeb0, type: 2}
+  m_Shader: {fileID: -3093500014867346572, guid: abb698c5ceaa8e66d56bfccef36daeb0,
+    type: 2}
   m_ShaderKeywords: DITHER FORCE_SPEC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -163,9 +164,9 @@ Material:
     - _SliceAlphaDepth: 0.1
     - _SliceBandHeight: 1
     - _SliceHeight: 5
-    - _Smoothness: 0
+    - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
-    - _SpecularExponent: 1
+    - _SpecularExponent: 0.01
     - _SpecularHighlights: 1
     - _SpecularStrength: 0
     - _SplatmapOn: 0

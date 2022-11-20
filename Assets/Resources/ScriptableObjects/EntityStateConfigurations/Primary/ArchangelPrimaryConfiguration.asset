@@ -101,14 +101,6 @@ MonoBehaviour:
       fieldValue:
         stringValue: 
         objectValue: {fileID: 11400000, guid: a9a2173a822883c42a8f20ba2b0a0b81, type: 2}
-    - fieldName: animationStateName
-      fieldValue:
-        stringValue: 
-        objectValue: {fileID: 0}
-    - fieldName: animationLayer
-      fieldValue:
-        stringValue: 
-        objectValue: {fileID: 0}
     - fieldName: recoilDirection
       fieldValue:
         stringValue: 0 0
@@ -140,4 +132,12 @@ MonoBehaviour:
     - fieldName: swordsAnimationStateName
       fieldValue:
         stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: fixedAdditionalDuration
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: setWaitingParameter
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}

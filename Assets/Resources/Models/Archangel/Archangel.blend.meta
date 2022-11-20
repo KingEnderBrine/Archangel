@@ -984,6 +984,18 @@ ModelImporter:
   - first:
       74: 651017814051102452
     second: Armature|A.Skill2_3
+  - first:
+      74: -6058123324544988633
+    second: SwordsArmature|S.Skill2_3 (1)
+  - first:
+      74: 1877279558326705218
+    second: Armature|A.Skill2_1
+  - first:
+      74: -1279097214305406865
+    second: Armature|A.Skill2_2
+  - first:
+      74: 6118165743196270880
+    second: Armature|A.Skill2_0
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -1018,7 +1030,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -1071,7 +1083,7 @@ ModelImporter:
       takeName: Armature|A.Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 200
+      lastFrame: 211
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1158,7 +1170,7 @@ ModelImporter:
       takeName: Armature|A.Skill1_1
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1187,7 +1199,7 @@ ModelImporter:
       takeName: Armature|A.Skill1_2
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 33
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1216,7 +1228,7 @@ ModelImporter:
       takeName: Armature|A.Skill1_3
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 56
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1390,7 +1402,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill1_1
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1415,7 +1427,7 @@ ModelImporter:
           curve:
           - serializedVersion: 3
             time: 0
-            value: 0
+            value: -0.004714966
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1423,8 +1435,8 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.3509934
-            value: 0
+            time: 0.70112604
+            value: -0.004714966
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1432,8 +1444,8 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.35540837
-            value: 1
+            time: 0.7055411
+            value: 0.99528503
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1442,7 +1454,7 @@ ModelImporter:
             outWeight: 0
           - serializedVersion: 3
             time: 0.9997764
-            value: 1
+            value: 0.99528503
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1462,7 +1474,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill1_2
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 33
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1495,7 +1507,7 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.20750552
+            time: 0.702403
             value: 0
             inSlope: 0
             outSlope: 0
@@ -1504,7 +1516,7 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.21192053
+            time: 0.706818
             value: 1
             inSlope: 0
             outSlope: 0
@@ -1534,7 +1546,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill1_3
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 56
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1559,19 +1571,91 @@ ModelImporter:
           curve:
           - serializedVersion: 3
             time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.33185843
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3362832
             value: 1
             inSlope: 0
             outSlope: 0
-            tangentMode: 34
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.48451328
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.48893806
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.86283183
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8672566
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.95353985
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.960177
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
             time: 1
-            value: 1
+            value: 0
             inSlope: 0
             outSlope: 0
-            tangentMode: 34
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
@@ -1588,7 +1672,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill2_0
       internalID: 0
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1621,7 +1705,7 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.5660063
+            time: 0.39027125
             value: 0
             inSlope: 0
             outSlope: 0
@@ -1630,7 +1714,7 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.5682138
+            time: 0.39247876
             value: 1
             inSlope: 0
             outSlope: 0
@@ -1639,8 +1723,62 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.99958086
+            time: 0.6128319
             value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6172566
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.71460176
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.721239
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.83628315
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.84292036
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.00003
+            value: -0.000029543939
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1660,7 +1798,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill2_1
       internalID: 0
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 58
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1711,7 +1849,7 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.75739795
+            time: 0.6054992
             value: 0.9952698
             inSlope: 0
             outSlope: 0
@@ -1720,7 +1858,7 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.7596054
+            time: 0.60770667
             value: -0.0047302246
             inSlope: 0
             outSlope: 0
@@ -1750,7 +1888,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill2_2
       internalID: 0
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1775,19 +1913,55 @@ ModelImporter:
           curve:
           - serializedVersion: 3
             time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.37022513
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.37464994
             value: 1
             inSlope: 0
             outSlope: 0
-            tangentMode: 34
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.67131543
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.67574024
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
             time: 1
-            value: 1
+            value: 0
             inSlope: 0
             outSlope: 0
-            tangentMode: 34
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
@@ -1804,7 +1978,7 @@ ModelImporter:
       takeName: SwordsArmature|S.Skill2_3
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 57
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1837,8 +2011,8 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.45448533
-            value: -0.007080078
+            time: 0.33770373
+            value: 0
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1846,8 +2020,8 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.46110782
-            value: 0.9929199
+            time: 0.34432623
+            value: 1
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1855,8 +2029,62 @@ ModelImporter:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 1.000382
-            value: 0.9929199
+            time: 0.55088496
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.5575221
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6482301
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6526548
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.82743365
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8318584
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1992,7 +2220,94 @@ ModelImporter:
       takeName: Armature|A.Skill2_3
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 57
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|A.Skill2_1
+      takeName: Armature|A.Skill2_1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 58
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|A.Skill2_2
+      takeName: Armature|A.Skill2_2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|A.Skill2_0
+      takeName: Armature|A.Skill2_0
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

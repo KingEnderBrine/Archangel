@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 2.4
         objectValue: {fileID: 0}
     - fieldName: damageCoefficient
       fieldValue:
@@ -95,7 +95,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDurationBeforeInterruptable
       fieldValue:
-        stringValue: 1
+        stringValue: 2.4
         objectValue: {fileID: 0}
     - fieldName: recoilDirection
       fieldValue:
@@ -119,11 +119,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: archangelAnimationLayer
       fieldValue:
-        stringValue: 
+        stringValue: Gesture, Override
         objectValue: {fileID: 0}
     - fieldName: archangelAnimationStateName
       fieldValue:
-        stringValue: 
+        stringValue: Skill2_1
         objectValue: {fileID: 0}
     - fieldName: swordsAnimationLayer
       fieldValue:
@@ -134,6 +134,10 @@ MonoBehaviour:
         stringValue: Skill2_1
         objectValue: {fileID: 0}
     - fieldName: fixedAdditionalDuration
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: setWaitingParameter
       fieldValue:
         stringValue: 0
         objectValue: {fileID: 0}

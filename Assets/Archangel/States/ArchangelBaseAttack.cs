@@ -13,6 +13,8 @@ namespace Archangel.States
 {
     public abstract class ArchangelBaseAttack : BasicMeleeAttack, SteppedSkillDef.IStepSetter
     {
+        private const float crossfadeDuration = 0.2F;
+
         protected abstract Action<object>[] StepInitActions { get; set; }
         public abstract EntityStateConfigurationCollection StepConfigurations { get; }
 
@@ -20,6 +22,8 @@ namespace Archangel.States
         public float baseDurationBeforeInterruptable;
         [SerializeField]
         public float fixedAdditionalDuration;
+        [SerializeField]
+        public bool setWaitingParameter;
         [SerializeField]
         public string archangelAnimationLayer;
         [SerializeField]
@@ -41,7 +45,6 @@ namespace Archangel.States
         private int step = -1;
         private float durationBeforeInterruptable;
         protected SwordsController swordsController;
-        protected Follower swordsFollower;
 
         protected abstract string PlaybackRateParameter { get; } 
 
@@ -50,8 +53,6 @@ namespace Archangel.States
             LoadStepConfiguration();
 
             swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().ControllerInstance;
-            swordsFollower = swordsController.GetComponent<Follower>();
-            swordsFollower.Snap();
 
             durationBeforeInterruptable = baseDurationBeforeInterruptable / attackSpeedStat;
 
@@ -62,9 +63,11 @@ namespace Archangel.States
 
         public override void OnExit()
         {
-            swordsFollower.UnSnap();
-            animator.SetBool("Waiting", false);
-            GetModelAnimator().SetBool("Waiting", false);
+            if (setWaitingParameter)
+            {
+                animator.SetBool("Waiting", false);
+                GetModelAnimator().SetBool("Waiting", false);
+            }
             base.OnExit();
         }
 
@@ -89,16 +92,22 @@ namespace Archangel.States
         {
             if (!string.IsNullOrWhiteSpace(archangelAnimationLayer) && !string.IsNullOrWhiteSpace(archangelAnimationStateName))
             {
-                animator.SetBool("Waiting", true);
-                PlayAnimation(archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, duration);
+                if (setWaitingParameter)
+                {
+                    animator.SetBool("Waiting", true);
+                }
+                PlayCrossfadeOnAnimator(animator, archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, duration, crossfadeDuration);
             }
 
             animator = swordsController.GetComponent<Animator>();
 
             if (!string.IsNullOrWhiteSpace(swordsAnimationLayer) && !string.IsNullOrWhiteSpace(swordsAnimationStateName))
             {
-                animator.SetBool("Waiting", true);
-                PlayAnimationOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, duration);
+                if (setWaitingParameter)
+                {
+                    animator.SetBool("Waiting", true);
+                }
+                PlayCrossfadeOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, duration, crossfadeDuration);
             }
         }
 
@@ -138,6 +147,26 @@ namespace Archangel.States
         public void SetStep(int i)
         {
             step = i;
+        }
+
+        protected void PlayCrossfadeOnAnimator(
+            Animator animator,
+            string layerName,
+            string animationStateName,
+            string playbackRateParam,
+            float duration,
+            float crossfadeDuration)
+        {
+            animator.speed = 1f;
+            animator.Update(0.0f);
+
+            var layerIndex = animator.GetLayerIndex(layerName);
+            animator.SetFloat(playbackRateParam, 1f);
+            animator.CrossFadeInFixedTime(animationStateName, crossfadeDuration, layerIndex);
+            animator.Update(0.0f);
+
+            var length = animator.GetNextAnimatorStateInfo(layerIndex).length;
+            animator.SetFloat(playbackRateParam, length / duration);
         }
     }
 }

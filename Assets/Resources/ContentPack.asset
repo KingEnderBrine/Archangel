@@ -39,6 +39,7 @@ MonoBehaviour:
   survivorDefs:
   - {fileID: 11400000, guid: 31dcdb118d58ede4db4ed626d75f8d02, type: 2}
   artifactDefs: []
+  effectDefs: []
   surfaceDefs: []
   networkSoundEventDefs: []
   musicTrackDefs: []

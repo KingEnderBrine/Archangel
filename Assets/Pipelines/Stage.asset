@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stage
   m_EditorClassIdentifier: 
   Data:
+  - {fileID: 1825532282338522412}
   - {fileID: 114256465017749422}
   - {fileID: 114643622350610336}
   - {fileID: 114537630434205182}
@@ -31,9 +32,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5769fcaac43a5254ab61ae23ab928427, type: 3}
   m_Name: StageAssetBundlesWithExternalReferences
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   contentBuildFlags: 0
   buildTarget: 5
@@ -53,9 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3570c76eb7a5c3c45942d9295a150917, type: 3}
   m_Name: StageManifestFiles
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
 --- !u!114 &114537630434205182
 MonoBehaviour:
@@ -69,9 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4f4581088b47744a114c282abc085d, type: 3}
   m_Name: StageDependencies
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   StagingPath: <StagingRoot>
   ExcludedManifests: []
@@ -87,9 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b20fac9c71fd64183cb7a8f359d73a, type: 3}
   m_Name: StageAssemblies
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   stageDebugDatabases: 1
   assemblyArtifactPath: <AssemblyStaging>
@@ -107,7 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc52389347ae9634bbb7e74eba886518, type: 3}
   m_Name: StageThunderstoreManifest
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
+--- !u!114 &1825532282338522412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d65cc226c348d45aa1c6dddf3600a6, type: 3}
+  m_Name: Delete
+  m_EditorClassIdentifier: 
+  Active: 1
+  PerManifest: 1
+  ListType: 0
+  Manifests: []
+  Recursive: 1
+  IsFatal: 0
+  Path: <ManifestStagingRoot>

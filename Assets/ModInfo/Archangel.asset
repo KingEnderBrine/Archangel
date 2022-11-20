@@ -16,6 +16,8 @@ MonoBehaviour:
   - {fileID: 114211852988908172}
   - {fileID: 114107831304456238}
   - {fileID: 114431642618062350}
+  - {fileID: 8701243340592645987}
+  - {fileID: 8659846175648724847}
   identity: {fileID: 114211852988908172}
   QuickAccess: 1
 --- !u!114 &114107831304456238
@@ -72,3 +74,33 @@ MonoBehaviour:
   - assetBundleName: ArchangelTeam_Archangel
     assets:
     - {fileID: 11400000, guid: 9dd1d2a7ce783b24d922823b2d2c1cd3, type: 2}
+--- !u!114 &8659846175648724847
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a82fec78ebc734d9ad1346cd40b5f9, type: 3}
+  m_Name: ThunderstoreData
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <ManifestStagingRoot>
+  url: 
+--- !u!114 &8701243340592645987
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <ManifestPluginStaging>
+  files: []

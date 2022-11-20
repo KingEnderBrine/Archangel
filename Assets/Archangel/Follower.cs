@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,17 @@ namespace Archangel
         [Range(0, 10)]
         public float rotationSpeed = 5;
         public float snapDuration = 0.1f;
+        public float immediateSnapRadius = 0.01f;
 
         private bool snapped;
         private float snappingTime = -1;
         private Vector3 velocity;
         private float noiseOffset;
         private float age;
-        public float lastTime;
-        public float lastNoise;
+        private float lastTime;
+        private float lastNoise;
+        private IEnumerator snapCoroutine;
+        private IEnumerator unSnapCoroutine;
 
         private void Awake()
         {
@@ -71,14 +75,73 @@ namespace Archangel
             age += Time.deltaTime;
         }
 
-        public void Snap()
+        public void Snap(float delay = 0)
         {
-            snappingTime = 0;
+            if (delay == 0)
+            {
+                SnapCore();
+            }
+            else if (snapCoroutine == null)
+            {
+                StartCoroutine(snapCoroutine = SnapCoroutine(delay));
+            }
+
+            if (unSnapCoroutine != null)
+            {
+                StopCoroutine(unSnapCoroutine);
+                unSnapCoroutine = null;
+            }
+        }
+
+        private IEnumerator SnapCoroutine(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            SnapCore();
+        }
+
+        private void SnapCore()
+        {
+            snapCoroutine = null;
+
+            var targetPosition = target.position + target.rotation * offset;
+            if ((targetPosition - transform.position).magnitude <= immediateSnapRadius)
+            {
+                snapped = true;
+            }
+            else
+            {
+                snappingTime = 0;
+            }
             velocity = Vector3.zero;
         }
 
-        public void UnSnap()
+        public void UnSnap(float delay = 0)
         {
+            if (delay == 0)
+            {
+                UnSnapCore();
+            }
+            else if (unSnapCoroutine == null)
+            {
+                StartCoroutine(unSnapCoroutine = UnSnapCoroutine(delay));
+            }
+
+            if (snapCoroutine != null)
+            {
+                StopCoroutine(snapCoroutine);
+                snapCoroutine = null;
+            }
+        }
+
+        private IEnumerator UnSnapCoroutine(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            UnSnapCore();
+        }
+
+        public void UnSnapCore()
+        {
+            unSnapCoroutine = null;
             snapped = false;
             snappingTime = -1;
         }

@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 1.375
         objectValue: {fileID: 0}
     - fieldName: damageCoefficient
       fieldValue:
@@ -95,7 +95,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDurationBeforeInterruptable
       fieldValue:
-        stringValue: 1
+        stringValue: 1.275
         objectValue: {fileID: 0}
     - fieldName: stepConfigurations
       fieldValue:
@@ -135,5 +135,9 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: fixedAdditionalDuration
       fieldValue:
-        stringValue: 0.25
+        stringValue: 0.15
+        objectValue: {fileID: 0}
+    - fieldName: setWaitingParameter
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}
