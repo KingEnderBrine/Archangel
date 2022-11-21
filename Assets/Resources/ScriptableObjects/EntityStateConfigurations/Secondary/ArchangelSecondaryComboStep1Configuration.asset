@@ -99,15 +99,15 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: recoilDirection
       fieldValue:
-        stringValue: 1 -0.5
+        stringValue: 1 1
         objectValue: {fileID: 0}
     - fieldName: minAmplitudeMultiplier
       fieldValue:
-        stringValue: 0.5
+        stringValue: -3.75
         objectValue: {fileID: 0}
     - fieldName: maxAmplitudeMultiplier
       fieldValue:
-        stringValue: 1.5
+        stringValue: 3.75
         objectValue: {fileID: 0}
     - fieldName: stepConfigurations
       fieldValue:

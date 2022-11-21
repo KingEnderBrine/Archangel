@@ -91,10 +91,7 @@ namespace Archangel
 
             rigidBody.velocity = transform.forward * speed;
 
-            if (target && target.alive)
-            {
-                PullTarget();
-            }
+            PullTarget();
 
             overlapAttack.Fire();
 
@@ -106,6 +103,11 @@ namespace Archangel
 
         private void PullTarget()
         {
+            if (!target || !target.alive)
+            {
+                return;
+            }
+
             var position = transform.position - targetCenterOffset;
             if (Vector3.Distance(target.transform.position, position) >= distanceToBreakFree)
             {

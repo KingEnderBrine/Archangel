@@ -13,7 +13,7 @@ namespace Archangel.States
 {
     public abstract class ArchangelBaseAttack : BasicMeleeAttack, SteppedSkillDef.IStepSetter
     {
-        private const float crossfadeDuration = 0.2F;
+        private const float crossfadeDuration = 0.1F;
 
         protected abstract Action<object>[] StepInitActions { get; set; }
         public abstract EntityStateConfigurationCollection StepConfigurations { get; }
@@ -44,6 +44,7 @@ namespace Archangel.States
 
         private int step = -1;
         private float durationBeforeInterruptable;
+
         protected SwordsController swordsController;
 
         protected abstract string PlaybackRateParameter { get; } 
@@ -54,11 +55,9 @@ namespace Archangel.States
 
             swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().ControllerInstance;
 
-            durationBeforeInterruptable = baseDurationBeforeInterruptable / attackSpeedStat;
-
             base.OnEnter();
 
-            duration += fixedAdditionalDuration;
+            durationBeforeInterruptable = baseDurationBeforeInterruptable / attackSpeedStat;
         }
 
         public override void OnExit()
@@ -71,6 +70,11 @@ namespace Archangel.States
             base.OnExit();
         }
 
+        public override float CalcDuration()
+        {
+            return base.CalcDuration() + fixedAdditionalDuration;
+        }
+
         public override void AuthorityModifyOverlapAttack(OverlapAttack overlapAttack)
         {
             base.AuthorityModifyOverlapAttack(overlapAttack);
@@ -79,8 +83,18 @@ namespace Archangel.States
 
         public override void BeginMeleeAttackEffect()
         {
+            if (this.meleeAttackStartTime != Run.FixedTimeStamp.positiveInfinity)
+            {
+                return;
+            }
+
             base.BeginMeleeAttackEffect();
-            cameraTargetParams.targetRecoil += recoilDirection.normalized * UnityEngine.Random.Range(minAmplitudeMultiplier, maxAmplitudeMultiplier);
+
+            AddRecoil(
+                recoilDirection.normalized.x * minAmplitudeMultiplier,
+                recoilDirection.normalized.x * maxAmplitudeMultiplier,
+                recoilDirection.normalized.y * minAmplitudeMultiplier,
+                recoilDirection.normalized.y * maxAmplitudeMultiplier);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
@@ -90,13 +104,14 @@ namespace Archangel.States
 
         public override void PlayAnimation()
         {
+            var animationDuration = duration - fixedAdditionalDuration;
             if (!string.IsNullOrWhiteSpace(archangelAnimationLayer) && !string.IsNullOrWhiteSpace(archangelAnimationStateName))
             {
                 if (setWaitingParameter)
                 {
                     animator.SetBool("Waiting", true);
                 }
-                PlayCrossfadeOnAnimator(animator, archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, duration, crossfadeDuration);
+                PlayCrossfadeOnAnimator(animator, archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, animationDuration, crossfadeDuration / attackSpeedStat);
             }
 
             animator = swordsController.GetComponent<Animator>();
@@ -107,7 +122,7 @@ namespace Archangel.States
                 {
                     animator.SetBool("Waiting", true);
                 }
-                PlayCrossfadeOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, duration, crossfadeDuration);
+                PlayCrossfadeOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, animationDuration, crossfadeDuration / attackSpeedStat);
             }
         }
 
@@ -163,7 +178,10 @@ namespace Archangel.States
             var layerIndex = animator.GetLayerIndex(layerName);
             animator.SetFloat(playbackRateParam, 1f);
             animator.CrossFadeInFixedTime(animationStateName, crossfadeDuration, layerIndex);
-            animator.Update(0.0f);
+            //Do a very small offset in the animation, so that the curve in mecanimHitboxActiveParameter
+            //would mix in crossfade transition and go bellow 0.5 when you interrupt during the attack
+            //because otherwise the attack would trigger on the first frame of the state.
+            animator.Update(0.001f);
 
             var length = animator.GetNextAnimatorStateInfo(layerIndex).length;
             animator.SetFloat(playbackRateParam, length / duration);

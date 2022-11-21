@@ -103,11 +103,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: minAmplitudeMultiplier
       fieldValue:
-        stringValue: -1
+        stringValue: -7.5
         objectValue: {fileID: 0}
     - fieldName: maxAmplitudeMultiplier
       fieldValue:
-        stringValue: 1
+        stringValue: 7.5
         objectValue: {fileID: 0}
     - fieldName: stepConfigurations
       fieldValue:

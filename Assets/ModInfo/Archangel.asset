@@ -53,7 +53,7 @@ MonoBehaviour:
   Author: ArchangelTeam
   Name: Archangel
   Description: 
-  Version: 0.0.1
+  Version: 0.0.2
   Dependencies:
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
 --- !u!114 &114431642618062350

@@ -107,11 +107,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: minAmplitudeMultiplier
       fieldValue:
-        stringValue: 0.5
+        stringValue: 0
         objectValue: {fileID: 0}
     - fieldName: maxAmplitudeMultiplier
       fieldValue:
-        stringValue: 1.5
+        stringValue: 3.75
         objectValue: {fileID: 0}
     - fieldName: damageType
       fieldValue:
