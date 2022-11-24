@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoR2;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Archangel
 {
     public class Follower : MonoBehaviour
     {
+        public AimAnimator aimAnimator;
         public Transform target;
         public Vector3 offset;
         public float positionDampTime = 0.2f;
@@ -20,6 +22,7 @@ namespace Archangel
         public float rotationSpeed = 5;
         public float snapDuration = 0.1f;
         public float immediateSnapRadius = 0.01f;
+        public float maxDistanceForRatation = 3f;
 
         private bool snapped;
         private float snappingTime = -1;
@@ -36,7 +39,7 @@ namespace Archangel
             noiseOffset = UnityEngine.Random.Range(0, 1);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (!target)
             {
@@ -44,16 +47,22 @@ namespace Archangel
             }
 
             var targetPosition = target.position + target.rotation * offset;
+            var targetRotation = target.rotation;
+            if (aimAnimator)
+            {
+                targetRotation *= Quaternion.Slerp(Quaternion.AngleAxis(aimAnimator.currentLocalAngles.pitch, Vector3.right), Quaternion.identity, Mathf.Clamp01((transform.position - targetPosition).magnitude / maxDistanceForRatation));
+            }
+
             if (snapped)
             {
-                transform.rotation = target.rotation;
+                transform.rotation = targetRotation;
                 transform.position = targetPosition;
             }
             else if (snappingTime >= 0)
             {
                 snappingTime += Time.deltaTime;
                 var t = Mathf.Clamp(snappingTime, 0, snapDuration) * (1 / snapDuration);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, t);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, t);
                 transform.position = Vector3.Lerp(transform.position, targetPosition, t);
                 if (snappingTime > snapDuration)
                 {
@@ -62,7 +71,7 @@ namespace Archangel
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Mathf.Clamp01(rotationSpeed * Time.deltaTime));
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Mathf.Clamp01(rotationSpeed * Time.deltaTime));
                 lastTime = positionDampTime;
                 if (positionWithNoise)
                 {
