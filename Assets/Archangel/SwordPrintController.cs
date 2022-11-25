@@ -11,6 +11,8 @@ namespace Archangel
 {
     public class SwordPrintController : PrintController
     {
+        private delegate RendererMaterialPair CreatePairFunc(ref CharacterModel.RendererInfo rendererInfo);
+
         public enum PrintDirection { BottomUp = 0, TopDown = 1, BackToFront = 3 };
 
         private static readonly Dictionary<GameObject, PrintInfo> printInfos = new Dictionary<GameObject, PrintInfo>();
@@ -26,9 +28,9 @@ namespace Archangel
         private new void Awake()
         {
             _propBlock = new MaterialPropertyBlock();
-            //characterModel = GetComponentInParent<CharacterModel>();
+            characterModel = GetComponentInParent<CharacterModel>();
             itemDisplay = GetComponentInParent<ItemDisplay>();
-            renderers = GetComponentsInChildren<Renderer>();
+            renderers = GetComponentsInChildren<Renderer>(true);
 
             printInfos.GetOrCreate(gameObject, () => new PrintInfo()).counter++;
         }
@@ -74,36 +76,25 @@ namespace Archangel
 #endif
             var printInfo = printInfos[gameObject];
 
-            if (itemDisplay && printInfo.baseRendererInfos != itemDisplay.rendererInfos)
+            if (characterModel && printInfo.baseRendererInfos != characterModel.baseRendererInfos)
+            {
+                printInfo.baseRendererInfos = characterModel.baseRendererInfos;
+                printInfo.pairs = GetPairsFromBaseRendererInfos(
+                    printInfo,
+                    (ref CharacterModel.RendererInfo local) =>
+                    {
+                        local.defaultMaterial = Instantiate(local.defaultMaterial);
+                        return new RendererMaterialPair(local.renderer, local.defaultMaterial);
+                    });
+                printInfo.wasSetup = true;
+            }
+            else if (itemDisplay && printInfo.baseRendererInfos != itemDisplay.rendererInfos)
             {
                 printInfo.baseRendererInfos = itemDisplay.rendererInfos;
-
-                var pairs = new List<RendererMaterialPair>();
-                for (var i = 0; i < renderers.Length; ++i)
-                {
-                    var index = -1;
-                    for (var j = 0; j < printInfo.baseRendererInfos.Length; j++)
-                    {
-                        if (printInfo.baseRendererInfos[j].renderer == renderers[i])
-                        {
-                            index = j;
-                            break;
-                        }
-                    }
-                    if (index == -1)
-                    {
-                        continue;
-                    }
-
-                    ref var local = ref printInfo.baseRendererInfos[index];
-                    if (local.renderer && local.renderer.material.shader == printShader)
-                    {
-                        pairs.Add(new RendererMaterialPair(local.renderer, local.renderer.material));
-                    }
-                }
-                printInfo.pairs = pairs.ToArray();
+                printInfo.pairs = GetPairsFromBaseRendererInfos(printInfo, (ref CharacterModel.RendererInfo local) => new RendererMaterialPair(local.renderer, local.renderer.material));
+                printInfo.wasSetup = true;
             }
-            else if (!printInfo.withoutInfo)
+            else if (!printInfo.wasSetup)
             {
                 var pairs = new List<RendererMaterialPair>();
                 foreach (var renderer in gameObject.GetComponentsInChildren<Renderer>(true))
@@ -111,7 +102,7 @@ namespace Archangel
                     pairs.Add(new RendererMaterialPair(renderer, renderer.material));
                 }
                 printInfo.pairs = pairs.ToArray();
-                printInfo.withoutInfo = true;
+                printInfo.wasSetup = true;
             }
 
             if (rendererMaterialPairs != printInfo.pairs)
@@ -120,12 +111,41 @@ namespace Archangel
             }
         }
 
+        private RendererMaterialPair[] GetPairsFromBaseRendererInfos(PrintInfo printInfo, CreatePairFunc createPairFunc)
+        {
+            var pairs = new List<RendererMaterialPair>();
+            for (var i = 0; i < renderers.Length; ++i)
+            {
+                var index = -1;
+                for (var j = 0; j < printInfo.baseRendererInfos.Length; j++)
+                {
+                    if (printInfo.baseRendererInfos[j].renderer == renderers[i])
+                    {
+                        index = j;
+                        break;
+                    }
+                }
+                if (index == -1)
+                {
+                    continue;
+                }
+
+                ref var local = ref printInfo.baseRendererInfos[index];
+                if (local.renderer && local.renderer.material.shader == printShader)
+                {
+                    pairs.Add(createPairFunc(ref local));
+                }
+            }
+
+            return pairs.ToArray();
+        }
+
         private class PrintInfo
         {
             public int counter;
             public RendererMaterialPair[] pairs;
             public CharacterModel.RendererInfo[] baseRendererInfos;
-            public bool withoutInfo;
+            public bool wasSetup;
         }
     }
 }

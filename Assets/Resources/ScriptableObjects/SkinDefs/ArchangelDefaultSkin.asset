@@ -17,37 +17,55 @@ MonoBehaviour:
   nameToken: ARCHANGEL_TEAM_ARCHANGEL_SKIN_DEFAULT_NAME
   unlockableName: 
   unlockableDef: {fileID: 0}
-  rootObject: {fileID: 6275588037565158741, guid: c0eac1c01632ad54eaa3162658cface0,
+  rootObject: {fileID: 3348727386980421855, guid: e574d7202f7cc8446b362fe10aed7abc,
     type: 3}
   rendererInfos:
-  - renderer: {fileID: 3126893214027165537, guid: c0eac1c01632ad54eaa3162658cface0,
+  - renderer: {fileID: 5911743126761843435, guid: e574d7202f7cc8446b362fe10aed7abc,
       type: 3}
     defaultMaterial: {fileID: 2100000, guid: 8220a0211bc7d5e4ba49c4d0d2506559, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 0
     hideOnDeath: 0
-  - renderer: {fileID: 1075453643197710324, guid: c0eac1c01632ad54eaa3162658cface0,
+  - renderer: {fileID: 8611595662798551678, guid: e574d7202f7cc8446b362fe10aed7abc,
       type: 3}
     defaultMaterial: {fileID: 2100000, guid: 32042fec417619343b94d312009935cb, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 0
     hideOnDeath: 0
-  - renderer: {fileID: 765782905941221528, guid: c0eac1c01632ad54eaa3162658cface0,
+  - renderer: {fileID: 8344841063934289170, guid: e574d7202f7cc8446b362fe10aed7abc,
       type: 3}
     defaultMaterial: {fileID: 2100000, guid: 1aedd56f90ee872479732b19c06d48fe, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 1
+    hideOnDeath: 0
+  - renderer: {fileID: 5748040812563128422, guid: e574d7202f7cc8446b362fe10aed7abc,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: 66ecc1645127bcf42a26643cd97522dc, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 9025706932013521748, guid: e574d7202f7cc8446b362fe10aed7abc,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: 66ecc1645127bcf42a26643cd97522dc, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 0
     hideOnDeath: 0
   gameObjectActivations: []
   meshReplacements:
-  - renderer: {fileID: 3126893214027165537, guid: c0eac1c01632ad54eaa3162658cface0,
+  - renderer: {fileID: 5911743126761843435, guid: e574d7202f7cc8446b362fe10aed7abc,
       type: 3}
     mesh: {fileID: 4300002, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
-  - renderer: {fileID: 1075453643197710324, guid: c0eac1c01632ad54eaa3162658cface0,
+  - renderer: {fileID: 8611595662798551678, guid: e574d7202f7cc8446b362fe10aed7abc,
       type: 3}
     mesh: {fileID: 4300000, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
-  - renderer: {fileID: 765782905941221528, guid: c0eac1c01632ad54eaa3162658cface0,
+  - renderer: {fileID: 8344841063934289170, guid: e574d7202f7cc8446b362fe10aed7abc,
       type: 3}
     mesh: {fileID: 4300004, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
+  - renderer: {fileID: 5748040812563128422, guid: e574d7202f7cc8446b362fe10aed7abc,
+      type: 3}
+    mesh: {fileID: 4300014, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
+  - renderer: {fileID: 9025706932013521748, guid: e574d7202f7cc8446b362fe10aed7abc,
+      type: 3}
+    mesh: {fileID: 4300012, guid: d7a46fc70843d31409c5852a6f875a2a, type: 3}
   projectileGhostReplacements: []
   minionSkinReplacements: []

@@ -148,7 +148,7 @@ namespace Archangel
             UnSnapCore();
         }
 
-        public void UnSnapCore()
+        private void UnSnapCore()
         {
             unSnapCoroutine = null;
             snapped = false;

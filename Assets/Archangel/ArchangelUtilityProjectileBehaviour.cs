@@ -44,7 +44,7 @@ namespace Archangel
         {
             var ownerBody = projectileController.owner.GetComponent<CharacterBody>();
 
-            ownerSwordsVisibilityController = ownerBody.modelLocator.modelTransform.GetComponent<SwordsLocator>().ControllerInstance;
+            ownerSwordsVisibilityController = ownerBody.modelLocator.modelTransform.GetComponent<SwordsLocator>().swordsController;
 
             switch (step)
             {

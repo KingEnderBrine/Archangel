@@ -31,13 +31,13 @@ namespace Archangel.AnimatorBehaviours
         {
             if (snapBehaviour == SnapBehaviour.Snap)
             {
-                var follower = animator.GetComponent<Follower>();
-                follower.Snap(delay);
+                var followerLocator = animator.GetComponent<FollowerLocator>();
+                followerLocator.follower.Snap(delay);
             }
             else if (snapBehaviour == SnapBehaviour.UnSnap)
             {
-                var follower = animator.GetComponent<Follower>();
-                follower.UnSnap(delay);
+                var followerLocator = animator.GetComponent<FollowerLocator>();
+                followerLocator.follower.UnSnap(delay);
             }
         }
     }

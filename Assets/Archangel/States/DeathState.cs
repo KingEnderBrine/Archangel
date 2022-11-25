@@ -14,8 +14,8 @@ namespace Archangel.States
         {
             base.OnEnter();
 
-            var swordsObject = cachedModelTransform.GetComponent<SwordsLocator>().instance;
-            var swordsRagdoll = swordsObject.GetComponent<RagdollController>();
+            var swordsController = cachedModelTransform.GetComponent<SwordsLocator>().swordsController;
+            var swordsRagdoll = swordsController.GetComponent<RagdollController>();
 
             var force = Vector3.up * 3f;
             if (characterMotor)

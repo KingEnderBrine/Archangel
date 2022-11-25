@@ -53,7 +53,7 @@ namespace Archangel.States
         {
             LoadStepConfiguration();
 
-            swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().ControllerInstance;
+            swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().swordsController;
 
             base.OnEnter();
 
