@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPrefab: {fileID: 8750018824639101403, guid: e574d7202f7cc8446b362fe10aed7abc,
     type: 3}
-  displayPrefab: {fileID: 8108266875415232677, guid: a18fbb5c7aec01a4fb378830c7874284,
+  displayPrefab: {fileID: 8640633779918908123, guid: a18fbb5c7aec01a4fb378830c7874284,
     type: 3}
   unlockableName: 
   unlockableDef: {fileID: 0}
