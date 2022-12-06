@@ -21,6 +21,8 @@ namespace Archangel.States
         [SerializeField]
         public float holdInAirDuration;
         [SerializeField]
+        public float animationDuration;
+        [SerializeField]
         public float radius;
         [SerializeField]
         public float procCoefficient;
@@ -40,7 +42,7 @@ namespace Archangel.States
         public override void OnEnter()
         {
             base.OnEnter();
-            PlayCrossfade("Gesture, Override", "Skill4", "SpecialPlaybackRate", liftUpDuration + holdInAirDuration, 0.1F);
+            PlayCrossfade("Gesture, Override", "Skill4", "SpecialPlaybackRate", animationDuration, 0.1F);
         }
 
         public override void OnSerialize(NetworkWriter writer)

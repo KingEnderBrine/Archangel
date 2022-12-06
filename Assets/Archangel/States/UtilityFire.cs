@@ -15,6 +15,8 @@ namespace Archangel.States
 
         [SerializeField]
         public float damageCoefficient;
+        [SerializeField]
+        public float animationDuration;
 
         private byte step;
         private bool keyWasUp;
@@ -28,6 +30,7 @@ namespace Archangel.States
         {
             base.OnEnter();
 
+            PlayAnimation("Gesture, Override", "Skill3", "UtilityPlacybackRate", animationDuration);
             if (isAuthority)
             {
                 var ray = GetAimRay();

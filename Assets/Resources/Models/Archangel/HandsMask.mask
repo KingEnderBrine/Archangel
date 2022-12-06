@@ -40,29 +40,29 @@ AvatarMask:
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003
     m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.L/DrapeFront.L.001
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.L/DrapeFront.L.001/DrapeFront.L.002
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.L/DrapeFront.L.001/DrapeFront.L.002/DrapeFront.L.003
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.L/DrapeFront.L.001/DrapeFront.L.002/DrapeFront.L.003/DrapeFront.L.004
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.L/DrapeFront.L.001/DrapeFront.L.002/DrapeFront.L.003/DrapeFront.L.004/DrapeFront.L.004_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.R/DrapeFront.R.001
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.R/DrapeFront.R.001/DrapeFront.R.002
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.R/DrapeFront.R.001/DrapeFront.R.002/DrapeFront.R.003
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.R/DrapeFront.R.001/DrapeFront.R.002/DrapeFront.R.003/DrapeFront.R.004
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/DrapeFront.R/DrapeFront.R.001/DrapeFront.R.002/DrapeFront.R.003/DrapeFront.R.004/DrapeFront.R.004_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004
     m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L
@@ -116,17 +116,17 @@ AvatarMask:
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L
     m_Weight: 1
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L/DrapeFront.L.005
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L/DrapeFront.L.005/DrapeFront.L.006
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L/DrapeFront.L.005/DrapeFront.L.006/DrapeFront.L.007
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L/DrapeFront.L.005/DrapeFront.L.006/DrapeFront.L.007/DrapeFront.L.008
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L/DrapeFront.L.005/DrapeFront.L.006/DrapeFront.L.007/DrapeFront.L.008/DrapeFront.L.009
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.L/UpperArm.L/ShoulderPad.L/DrapeFront.L.005/DrapeFront.L.006/DrapeFront.L.007/DrapeFront.L.008/DrapeFront.L.009/DrapeFront.L.009_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.R
     m_Weight: 1
   - m_Path: Armature/Root/Spine.001/Spine.002/Spine.003/Spine.004/Shoulder.R/UpperArm.R

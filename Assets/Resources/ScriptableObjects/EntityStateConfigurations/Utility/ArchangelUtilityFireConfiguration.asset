@@ -26,3 +26,7 @@ MonoBehaviour:
       fieldValue:
         stringValue: 10
         objectValue: {fileID: 0}
+    - fieldName: animationDuration
+      fieldValue:
+        stringValue: 0.5
+        objectValue: {fileID: 0}
