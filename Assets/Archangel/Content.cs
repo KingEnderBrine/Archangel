@@ -12,7 +12,7 @@ namespace Archangel
 {
     public partial class Content : IContentPackProvider
     {
-        private const string bundleName = "ArchangelTeam_Archangel";
+        private const string bundleName = "Paladin_Alliance_Archangel";
         
         private static AssetBundle assetBundle;
         private static ContentPack contentPack;
@@ -31,24 +31,28 @@ namespace Archangel
 
         public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
-            assetBundle = AssetBundle.LoadFromFile(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(ArchangelPlugin.Instance.Info.Location), bundleName));
-            args.ReportProgress(0.01f);
-            var serializableContent = assetBundle.LoadAsset<SerializableContentPack>(ContentPackPath);
+            var assetBundleRequest = AssetBundle.LoadFromFileAsync(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(ArchangelPlugin.Instance.Info.Location), bundleName));
+            foreach (var result in HandleAsyncOperationProgress(args, assetBundleRequest, 0, 0.25f)) { yield return result; }
+            assetBundle = assetBundleRequest.assetBundle;
+
+            var serializableContentRequest = assetBundle.LoadAssetAsync<SerializableContentPack>(ContentPackPath);
+            foreach (var result in HandleAsyncOperationProgress(args, serializableContentRequest, 0.25f, 0.9f)) { yield return result; }
+            var serializableContent = serializableContentRequest.asset as SerializableContentPack;
             contentPack = serializableContent.CreateContentPack();
 
             var loadDispatchers = new List<Action>();
             PopulateAssetLoadDispatchers(loadDispatchers, contentPack);
 
-            contentPack.entityStateTypes.Add(Assembly.GetExecutingAssembly().GetTypes().Where(el => typeof(EntityState).IsAssignableFrom(el)).ToArray());
-
             for (var i = 0; i < loadDispatchers.Count; i++)
             {
                 loadDispatchers[i]();
-                args.ReportProgress(Util.Remap(i + 1, 0, loadDispatchers.Count, 0.05f, 0.98f));
+                args.ReportProgress(Util.Remap(i + 1, 0, loadDispatchers.Count, 0.9f, 0.99f));
                 yield return null;
             }
 
-            args.ReportProgress(0.99F);
+            contentPack.entityStateTypes.Add(Assembly.GetExecutingAssembly().GetTypes().Where(el => typeof(EntityState).IsAssignableFrom(el)).ToArray());
+
+            args.ReportProgress(1F);
         }
 
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
@@ -62,6 +66,19 @@ namespace Archangel
         {
             args.ReportProgress(1f);
             yield break;
+        }
+
+        private IEnumerable HandleAsyncOperationProgress(LoadStaticContentAsyncArgs args, AsyncOperation operation, float startProgress, float endProgress)
+        {
+            args.ReportProgress(startProgress);
+            yield return null;
+
+            while (!operation.isDone)
+            {
+                args.ReportProgress(Util.Remap(operation.progress, 0, 1, startProgress, endProgress));
+                yield return null;
+            }
+            args.ReportProgress(0.5f);
         }
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: hitPauseDuration
       fieldValue:
-        stringValue: 0.01
+        stringValue: 0.075
         objectValue: {fileID: 0}
     - fieldName: swingEffectPrefab
       fieldValue:

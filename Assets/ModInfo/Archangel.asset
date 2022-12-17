@@ -50,10 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <ManifestPluginStaging>
-  Author: ArchangelTeam
+  Author: Paladin_Alliance
   Name: Archangel
   Description: 
-  Version: 0.0.4
+  Version: 0.0.5
   Dependencies:
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
 --- !u!114 &114431642618062350
@@ -71,7 +71,7 @@ MonoBehaviour:
   StagingPaths:
   - <ManifestPluginStaging>
   assetBundles:
-  - assetBundleName: ArchangelTeam_Archangel
+  - assetBundleName: Paladin_Alliance_Archangel
     assets:
     - {fileID: 11400000, guid: 9dd1d2a7ce783b24d922823b2d2c1cd3, type: 2}
 --- !u!114 &8659846175648724847

@@ -22,6 +22,12 @@ namespace Archangel.States
         public override void OnEnter()
         {
             base.OnEnter();
+
+            var swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().swordsController;
+            var swordsAnimator = swordsController.GetComponent<Animator>();
+
+            Utilities.PlayCrossfadeOnAnimator(GetModelAnimator(), "Gesture, Override", "Empty", Utilities.crossfadeDuration);
+            Utilities.PlayCrossfadeOnAnimator(swordsAnimator, "Base", "Default", Utilities.crossfadeDuration);
         }
 
         public override void OnExit()

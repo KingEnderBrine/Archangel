@@ -14,9 +14,9 @@ namespace Archangel
     [BepInPlugin(PluginGUID, Name, Version)]
     public class ArchangelPlugin : BaseUnityPlugin
     {
-        public const string PluginGUID = "com.ArchangelTeam.Archangel";
+        public const string PluginGUID = "Paladin_Alliance.Archangel";
         public const string Name = "Archangel";
-        public const string Version = "0.0.4";
+        public const string Version = "0.0.5";
 
         internal static ArchangelPlugin Instance { get; private set; }
         internal static ManualLogSource InstanceLogger => Instance ? Instance.Logger : null;

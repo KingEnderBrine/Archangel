@@ -13,8 +13,6 @@ namespace Archangel.States
 {
     public abstract class ArchangelBaseAttack : BasicMeleeAttack, SteppedSkillDef.IStepSetter
     {
-        private const float crossfadeDuration = 0.1F;
-
         protected abstract Action<object>[] StepInitActions { get; set; }
         public abstract EntityStateConfigurationCollection StepConfigurations { get; }
 
@@ -44,6 +42,8 @@ namespace Archangel.States
 
         private int step = -1;
         private float durationBeforeInterruptable;
+        private Animator archangelAnimator;
+        private Animator swordsAnimator;
 
         protected SwordsController swordsController;
 
@@ -54,9 +54,11 @@ namespace Archangel.States
             LoadStepConfiguration();
 
             swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().swordsController;
+            swordsAnimator = swordsController.GetComponent<Animator>();
 
             base.OnEnter();
 
+            archangelAnimator = animator;
             durationBeforeInterruptable = baseDurationBeforeInterruptable / attackSpeedStat;
         }
 
@@ -111,10 +113,10 @@ namespace Archangel.States
                 {
                     animator.SetBool("Waiting", true);
                 }
-                PlayCrossfadeOnAnimator(animator, archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, animationDuration, crossfadeDuration / attackSpeedStat);
+                Utilities.PlayCrossfadeOnAnimator(animator, archangelAnimationLayer, archangelAnimationStateName, PlaybackRateParameter, animationDuration, Utilities.crossfadeDuration / attackSpeedStat);
             }
 
-            animator = swordsController.GetComponent<Animator>();
+            animator = swordsAnimator;
 
             if (!string.IsNullOrWhiteSpace(swordsAnimationLayer) && !string.IsNullOrWhiteSpace(swordsAnimationStateName))
             {
@@ -122,14 +124,20 @@ namespace Archangel.States
                 {
                     animator.SetBool("Waiting", true);
                 }
-                PlayCrossfadeOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, animationDuration, crossfadeDuration / attackSpeedStat);
+                Utilities.PlayCrossfadeOnAnimator(animator, swordsAnimationLayer, swordsAnimationStateName, PlaybackRateParameter, animationDuration, Utilities.crossfadeDuration / attackSpeedStat);
             }
         }
 
         public override void OnMeleeHitAuthority()
         {
-            base.OnMeleeHitAuthority();
-            AuthorityExitHitPause();
+            archangelAnimator.speed = 0;
+            duration += hitPauseTimer;
+        }
+
+        public override void AuthorityExitHitPause()
+        {
+            base.AuthorityExitHitPause();
+            archangelAnimator.speed = 1;
         }
 
         public override void OnSerialize(NetworkWriter writer)
@@ -162,29 +170,6 @@ namespace Archangel.States
         public void SetStep(int i)
         {
             step = i;
-        }
-
-        protected void PlayCrossfadeOnAnimator(
-            Animator animator,
-            string layerName,
-            string animationStateName,
-            string playbackRateParam,
-            float duration,
-            float crossfadeDuration)
-        {
-            animator.speed = 1f;
-            animator.Update(0.0f);
-
-            var layerIndex = animator.GetLayerIndex(layerName);
-            animator.SetFloat(playbackRateParam, 1f);
-            animator.CrossFadeInFixedTime(animationStateName, crossfadeDuration, layerIndex);
-            //Do a very small offset in the animation, so that the curve in mecanimHitboxActiveParameter
-            //would mix in crossfade transition and go bellow 0.5 when you interrupt during the attack
-            //because otherwise the attack would trigger on the first frame of the state.
-            animator.Update(0.001f);
-
-            var length = animator.GetNextAnimatorStateInfo(layerIndex).length;
-            animator.SetFloat(playbackRateParam, length / duration);
         }
     }
 }

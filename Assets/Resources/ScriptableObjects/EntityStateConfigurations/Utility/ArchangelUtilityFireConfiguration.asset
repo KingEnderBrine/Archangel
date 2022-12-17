@@ -30,3 +30,7 @@ MonoBehaviour:
       fieldValue:
         stringValue: 0.5
         objectValue: {fileID: 0}
+    - fieldName: minimumDuration
+      fieldValue:
+        stringValue: 0.5
+        objectValue: {fileID: 0}

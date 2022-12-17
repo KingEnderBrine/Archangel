@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeb44db59adc8f469fc13afe7af97e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0.15
+  delayBeforeStart: 0
   maxLifetime: 0.5
   lifetimeAfterImpact: 2
   speed: 100

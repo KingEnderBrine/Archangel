@@ -12,6 +12,8 @@ namespace Archangel
     public class Follower : MonoBehaviour
     {
         public AimAnimator aimAnimator;
+        public Vector3 aimRotationOffset;
+
         public Transform target;
         public Vector3 offset;
         public float positionDampTime = 0.2f;
@@ -50,7 +52,7 @@ namespace Archangel
             var targetRotation = target.rotation;
             if (aimAnimator)
             {
-                targetRotation *= Quaternion.Slerp(Quaternion.AngleAxis(aimAnimator.currentLocalAngles.pitch, Vector3.right), Quaternion.identity, Mathf.Clamp01((transform.position - targetPosition).magnitude / maxDistanceForRatation));
+                targetRotation *= Quaternion.Slerp(Quaternion.AngleAxis(aimAnimator.currentLocalAngles.pitch, Vector3.right) * Quaternion.Euler(aimRotationOffset), Quaternion.identity, Mathf.Clamp01((transform.position - targetPosition).magnitude / maxDistanceForRatation));
             }
 
             if (snapped)

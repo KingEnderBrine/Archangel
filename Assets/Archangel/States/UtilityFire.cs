@@ -1,14 +1,16 @@
 ﻿using EntityStates;
+using RoR2;
 using RoR2.Projectile;
 using RoR2.Skills;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
 namespace Archangel.States
 {
-    public class UtilityFire : BaseSkillState, SteppedSkillDef.IStepSetter, ISkillInterruptor
+    public class UtilityFire : BaseSkillState, SteppedSkillDef.IStepSetter
     {
         [SerializeField]
         public static GameObject projectilePrefab;
@@ -17,20 +19,27 @@ namespace Archangel.States
         public float damageCoefficient;
         [SerializeField]
         public float animationDuration;
+        [SerializeField]
+        public float minimumDuration;
 
         private byte step;
         private bool keyWasUp;
         private ArchangelUtilityProjectileBehaviour projectileBehaviour;
         private bool dashing;
-        private bool holdInAir;
+        private EntityStateMachine hoverStateMachine;
 
-        public override InterruptPriority GetMinimumInterruptPriority() => InterruptPriority.Skill;
+        public override InterruptPriority GetMinimumInterruptPriority() => fixedAge < minimumDuration ? InterruptPriority.Vehicle : InterruptPriority.Skill;
 
         public override void OnEnter()
         {
             base.OnEnter();
 
-            PlayAnimation("Gesture, Override", "Skill3", "UtilityPlacybackRate", animationDuration);
+            var swordsController = outer.commonComponents.modelLocator.modelTransform.GetComponent<SwordsLocator>().swordsController;
+            var swordsAnimator = swordsController.GetComponent<Animator>();
+
+            Utilities.PlayCrossfadeOnAnimator(GetModelAnimator(), "Gesture, Override", "Skill3", "UtilityPlacybackRate", animationDuration, Utilities.crossfadeDuration);
+            Utilities.PlayCrossfadeOnAnimator(swordsAnimator, "Base", "Default", Utilities.crossfadeDuration);
+
             if (isAuthority)
             {
                 var ray = GetAimRay();
@@ -42,13 +51,16 @@ namespace Archangel.States
                 
                 ArchangelUtilityProjectileBehaviour.ProjectileCreated += ModifyProjectile;
                 ProjectileManager.instance.FireProjectile(projectilePrefab, projectilePosition, projectileRotation, gameObject, damageStat * damageCoefficient, 0, RollCrit());
+
+                hoverStateMachine = EntityStateMachine.FindByCustomName(gameObject, "Hover");
+                hoverStateMachine.SetNextState(new Hover { hoverDuration = projectileBehaviour.delayBeforeStart + projectileBehaviour.maxLifetime + projectileBehaviour.lifetimeAfterImpact });
             }
             void ModifyProjectile(ArchangelUtilityProjectileBehaviour behaviour)
             {
                 ArchangelUtilityProjectileBehaviour.ProjectileCreated -= ModifyProjectile;
                 projectileBehaviour = behaviour;
                 behaviour.step = step;
-                StartAimMode(behaviour.maxLifetime, true);
+                StartAimMode(behaviour.delayBeforeStart + behaviour.maxLifetime, true);
             }
         }
 
@@ -64,34 +76,31 @@ namespace Archangel.States
         public override void Update()
         {
             base.Update();
-            if (isAuthority)
+
+            if (!isAuthority)
             {
-                if (!projectileBehaviour)
-                {
-                    return;
-                }
-                if (holdInAir && inputBank.moveVector.magnitude > 0.25F)
-                {
-                    holdInAir = false;
-                }
-                var keyDown = IsKeyDownAuthority();
-                if (keyWasUp && keyDown)
-                {
-                    this.ClaimButtonPressAuthority(skillLocator, inputBank);
-                    var nextState = new UtilityDash
-                    {
-                        projectileBehaviour = projectileBehaviour,
-                        activatorSkillSlot = activatorSkillSlot,
-                    };
-                    outer.SetNextState(nextState);
-                    dashing = true;
-                    return;
-                }
-                else
-                {
-                    keyWasUp = !keyDown;
-                }
+                return;
             }
+            if (!projectileBehaviour)
+            {
+                return;
+            }
+
+            var keyDown = IsKeyDownAuthority();
+            if (keyWasUp && keyDown)
+            {
+                this.ClaimButtonPressAuthority(skillLocator, inputBank);
+                var nextState = new UtilityDash
+                {
+                    projectileBehaviour = projectileBehaviour,
+                    activatorSkillSlot = activatorSkillSlot,
+                };
+                outer.SetNextState(nextState);
+                dashing = true;
+                return;
+            }
+
+            keyWasUp = !keyDown;
         }
 
         public override void FixedUpdate()
@@ -99,11 +108,6 @@ namespace Archangel.States
             base.FixedUpdate();
             if (isAuthority)
             {
-                if (holdInAir && characterMotor)
-                {
-                    characterMotor.velocity = Vector3.zero;
-                }
-
                 if (!projectileBehaviour)
                 {
                     outer.SetNextStateToMain();
@@ -127,11 +131,6 @@ namespace Archangel.States
         public void SetStep(int step)
         {
             this.step = (byte)step;
-        }
-
-        public void SetInterruptedState(EntityState entityState)
-        {
-            holdInAir = entityState is UtilityAfterDash;
         }
     }
 }

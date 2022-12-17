@@ -31,7 +31,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: forceMagnitude
       fieldValue:
-        stringValue: -1500
+        stringValue: -2500
         objectValue: {fileID: 0}
     - fieldName: distanceAboveGround
       fieldValue:
@@ -39,7 +39,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: liftUpDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 0.75
         objectValue: {fileID: 0}
     - fieldName: projectilePrefab
       fieldValue:
@@ -48,9 +48,9 @@ MonoBehaviour:
           type: 3}
     - fieldName: holdInAirDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 0.75
         objectValue: {fileID: 0}
     - fieldName: animationDuration
       fieldValue:
-        stringValue: 2.8
+        stringValue: 2.2
         objectValue: {fileID: 0}

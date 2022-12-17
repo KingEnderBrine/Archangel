@@ -23,5 +23,9 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: dashDuration
       fieldValue:
-        stringValue: 0.25
+        stringValue: 0.5
+        objectValue: {fileID: 0}
+    - fieldName: hoverDuration
+      fieldValue:
+        stringValue: 1.25
         objectValue: {fileID: 0}

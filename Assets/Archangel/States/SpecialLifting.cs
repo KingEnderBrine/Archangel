@@ -66,7 +66,7 @@ namespace Archangel.States
                 FixedUpdateServer();
             }
 
-            if (fixedAge > liftUpDuration + holdInAirDuration)
+            if (fixedAge > animationDuration)
             {
                 outer.SetNextStateToMain();
             }

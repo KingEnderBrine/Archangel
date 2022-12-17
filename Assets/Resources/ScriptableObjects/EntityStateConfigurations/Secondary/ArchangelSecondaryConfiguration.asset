@@ -47,7 +47,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: hitPauseDuration
       fieldValue:
-        stringValue: 0.01
+        stringValue: 0.05
         objectValue: {fileID: 0}
     - fieldName: swingEffectPrefab
       fieldValue:
@@ -87,7 +87,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: scaleHitPauseDurationAndVelocityWithAttackSpeed
       fieldValue:
-        stringValue: 0
+        stringValue: 1
         objectValue: {fileID: 0}
     - fieldName: ignoreAttackSpeed
       fieldValue:

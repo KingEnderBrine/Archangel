@@ -28,6 +28,7 @@ namespace Archangel
         public float speed;
 
         [SyncVar]
+        [HideInInspector]
         public byte step;
 
         private void Awake()
@@ -87,7 +88,9 @@ namespace Archangel
                 {
                     Destroy(rigidBody);
                     Destroy(collider);
+                    rigidBody = null;
                 }
+
                 ageAfterImpact += Time.fixedDeltaTime;
                 if (ageAfterImpact > lifetimeAfterImpact)
                 {

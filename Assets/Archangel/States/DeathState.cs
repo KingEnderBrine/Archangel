@@ -15,6 +15,7 @@ namespace Archangel.States
             base.OnEnter();
 
             var swordsController = cachedModelTransform.GetComponent<SwordsLocator>().swordsController;
+            var swordsAnimator = swordsController.GetComponent<Animator>();
             var swordsRagdoll = swordsController.GetComponent<RagdollController>();
 
             var force = Vector3.up * 3f;
@@ -23,6 +24,7 @@ namespace Archangel.States
                 force += characterMotor.velocity;
             }
 
+            PlayAnimationOnAnimator(swordsAnimator, "Base", "Default");
             swordsRagdoll.BeginRagdoll(force);
         }
     }
