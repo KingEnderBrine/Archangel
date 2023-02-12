@@ -32,11 +32,12 @@ namespace Archangel
         public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
             var assetBundleRequest = AssetBundle.LoadFromFileAsync(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(ArchangelPlugin.Instance.Info.Location), bundleName));
-            foreach (var result in HandleAsyncOperationProgress(args, assetBundleRequest, 0, 0.25f)) { yield return result; }
+            yield return HandleAsyncOperationProgress(args, assetBundleRequest, 0, 0.25f);
             assetBundle = assetBundleRequest.assetBundle;
 
             var serializableContentRequest = assetBundle.LoadAssetAsync<SerializableContentPack>(ContentPackPath);
-            foreach (var result in HandleAsyncOperationProgress(args, serializableContentRequest, 0.25f, 0.9f)) { yield return result; }
+            yield return HandleAsyncOperationProgress(args, serializableContentRequest, 0.25f, 0.9f);
+
             var serializableContent = serializableContentRequest.asset as SerializableContentPack;
             contentPack = serializableContent.CreateContentPack();
 
@@ -78,7 +79,7 @@ namespace Archangel
                 args.ReportProgress(Util.Remap(operation.progress, 0, 1, startProgress, endProgress));
                 yield return null;
             }
-            args.ReportProgress(0.5f);
+            args.ReportProgress(endProgress);
         }
     }
 }

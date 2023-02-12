@@ -16,7 +16,7 @@ namespace Archangel
     {
         public const string PluginGUID = "Paladin_Alliance.Archangel";
         public const string Name = "Archangel";
-        public const string Version = "0.0.5";
+        public const string Version = "0.0.6";
 
         internal static ArchangelPlugin Instance { get; private set; }
         internal static ManualLogSource InstanceLogger => Instance ? Instance.Logger : null;

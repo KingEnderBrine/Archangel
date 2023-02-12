@@ -26,7 +26,18 @@ namespace Archangel.States
 
             if (characterMotor)
             {
+                characterMotor.useGravity = false;
                 characterMotor.velocity = velocity;
+            }
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+
+            if (characterMotor)
+            {
+                characterMotor.useGravity = true;
             }
         }
 
